@@ -8,12 +8,13 @@ router.get("/pokemons", (req, res) => {
   res.send("Todos los pokemons");
 });
 
-router.get("/pokemons/name?=pokemon", (req, res) => {
-  res.send("pokemons por nombre en query");
-});
-
 router.get("/pokemons/:idPokemons", (req, res) => {
   res.send("pokemons por id");
+});
+
+router.get("/pokemons/?name=pokemon", (req, res) => {
+  const { name } = req.query;
+  res.send(`pokemons por ${name} en query`);
 });
 
 router.post("/pokemons", (req, res) => {
