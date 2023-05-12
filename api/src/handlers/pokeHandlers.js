@@ -1,5 +1,8 @@
 const getPokeHandler = (req, res) => {
-  res.send("NIY: está ruta trae la info de los pokemons");
+  const { name } = req.query;
+  name
+    ? res.send(`todos los pokemons con nombre ${name}`)
+    : res.send("todos los pokemons");
 };
 
 const getPokeById = (req, res) => {
@@ -8,7 +11,9 @@ const getPokeById = (req, res) => {
 };
 
 const createPoke = (req, res) => {
-  res.send("NIY: esta ruta postea un pokemon en la DB");
+  const { name, hp, attack, defense, speed, height, weight, img, types } =
+    req.body;
+  res.send(`posteando el pokemon ${name}`);
 };
 
 module.exports = {
