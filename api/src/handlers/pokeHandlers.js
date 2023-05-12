@@ -1,3 +1,5 @@
+const { createPoke } = require("../controllers/pokeController");
+
 const getPokeHandler = (req, res) => {
   const { name } = req.query;
   name
@@ -5,19 +7,34 @@ const getPokeHandler = (req, res) => {
     : res.send("todos los pokemons");
 };
 
-const getPokeById = (req, res) => {
+const getPokesHandler = (req, res) => {
   const { id } = req.params;
   res.send(`NIY: esta ruta trae el detalle del pokemon con ID ${id}`);
 };
 
-const createPoke = (req, res) => {
-  const { name, hp, attack, defense, speed, height, weight, img, types } =
-    req.body;
-  res.send(`posteando el pokemon ${name}`);
+const createPokeHandler = async (req, res) => {
+  try {
+    const { name, image, hp, attack, defense, types, speed, height, weight } =
+      req.body;
+    const newPoke = await createPoke(
+      name,
+      image,
+      hp,
+      attack,
+      defense,
+      types,
+      speed,
+      height,
+      weight
+    );
+    res.status(201).json(newPoke);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 };
 
 module.exports = {
   getPokeHandler,
-  getPokeById,
-  createPoke,
+  getPokesHandler,
+  createPokeHandler,
 };
