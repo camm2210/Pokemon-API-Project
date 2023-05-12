@@ -9,8 +9,7 @@ module.exports = (sequelize) => {
       },
     },
     {
-      createdAt: false,
-      updatedAt: false,
+      timestamps: false,
     }
   );
 };
