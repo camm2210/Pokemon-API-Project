@@ -1,5 +1,9 @@
-const getPokeType = (req, res) => {
-  res.send("NIY: esta ruta trae los tipos de pokemons.");
+const { getPokeApi } = require("../controllers/typeController");
+
+const getPokeType = async (req, res) => {
+  const getTypes = await getPokeApi();
+
+  res.send(console.log(getTypes));
 };
 
 module.exports = getPokeType;

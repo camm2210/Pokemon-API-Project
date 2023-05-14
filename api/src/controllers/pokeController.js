@@ -1,4 +1,18 @@
 const { Pokemon } = require("../db");
+const axios = require("axios");
+
+const getAllPokes = async () => {
+  const allPokes = await axios.get("https://pokeapi.co/api/v2/pokemon");
+  return allPokes;
+};
+
+const getPokesById = async (id, src) => {
+  const poke =
+    src === "API"
+      ? (await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)).data
+      : await Pokemon.findByPk(id);
+  return poke;
+};
 
 const createPoke = async (
   name,
@@ -24,4 +38,4 @@ const createPoke = async (
   });
 };
 
-module.exports = { createPoke };
+module.exports = { createPoke, getPokesById, getAllPokes };
