@@ -1,9 +1,12 @@
-const { getPokeApi } = require("../controllers/typeController");
+const { getTypeDb } = require("../controllers/typeController");
 
 const getPokeType = async (req, res) => {
-  const getTypes = await getPokeApi();
-
-  res.send(console.log(getTypes));
+  try {
+    const pokeType = getTypeDb();
+    res.status(200).json({ pokeType });
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
 };
 
 module.exports = getPokeType;
