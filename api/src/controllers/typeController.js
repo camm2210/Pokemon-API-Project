@@ -13,9 +13,7 @@ const getTypeApi = async () => {
 };
 
 const getTypeDb = async () => {
-  const pokeTypes = await Type.findAll({
-    Attributes: ["name"],
-  });
+  const pokeTypes = await Type.findAll();
   const types = pokeTypes.map((element) => element.name);
   return types;
 };
