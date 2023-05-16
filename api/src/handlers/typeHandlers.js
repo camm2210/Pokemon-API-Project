@@ -5,6 +5,7 @@ const getPokeType = async (req, res) => {
     const pokeType = getTypeDb();
     return res.status(200).json(pokeType);
   } catch (error) {
+    console.log(error);
     res.status(404).json({ error: error.message });
   }
 };
