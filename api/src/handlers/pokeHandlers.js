@@ -5,19 +5,19 @@ const {
 } = require("../controllers/pokeController");
 
 const getPokeHandler = async (req, res) => {
-  const { name } = req.query;
-  const allPokes = await getAllPokes();
   try {
+    const { name } = req.query;
+    const allPokes = await getAllPokes();
     if (name) {
       let pokemon = allPokes.filter((element) => element.name === name);
-      pokemon.length
-        ? res.status(200).send(pokemon)
-        : res.status(404).send("pokemon not found");
+      if (pokemon.length) res.send(pokemon);
+      else {
+        res.send("pokemon not found");
+      }
     } else {
-      let pokemons = await getAllPokes();
-      res.status(200).send(pokemons);
+      let pokemons = allPokes;
+      return res.status(200).json(pokemons);
     }
-    res.status(200).json(allPokes);
   } catch (error) {
     res.status(404).json({ error: error.message });
   }

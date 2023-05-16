@@ -20,7 +20,7 @@
 const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
 const { getTypeApi } = require("../api/src/controllers/typeController.js");
-const { getApiPokes } = require("../api/src/controllers/getApiController.js");
+const { getApiPokes } = require("../api/src/controllers/pokeController.js");
 // Syncing all the models at once.
 conn.sync({ force: true }).then(async () => {
   await getApiPokes();
