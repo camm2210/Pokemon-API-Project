@@ -12,7 +12,7 @@ const getDbPokes = async () => {
       },
     },
   });
-  console.log("db pokes obtained");
+  console.log("DB pokes obtained");
   return dbPokes;
 };
 

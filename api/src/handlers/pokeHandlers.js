@@ -5,29 +5,23 @@ const {
 } = require("../controllers/pokeController");
 
 const getPokeHandler = async (req, res) => {
+  const { name } = req.query;
+  const allPokes = await getAllPokes();
   try {
-    const { name } = req.query;
-    const allPokes = await getAllPokes();
-    res.status(200).send(allPokes);
+    if (name) {
+      let pokemon = allPokes.filter((element) => element.name === name);
+      pokemon.length
+        ? res.status(200).send(pokemon)
+        : res.status(404).send("pokemon not found");
+    } else {
+      let pokemons = await getAllPokes();
+      res.status(200).send(pokemons);
+    }
+    res.status(200).json(allPokes);
   } catch (error) {
-    res.status(400).send({ error: error.message });
+    res.status(404).json({ error: error.message });
   }
 };
-//   try {
-//     if (name) {
-//       let pokemon = allPokes.filter((element) => element.name === name);
-//       poke.length
-//         ? res.status(200).send(pokemon)
-//         : res.status(404).send("pokemon not found");
-//     } else {
-//       let pokemons = await getAllPokes();
-//       res.status(200).send(pokemons);
-//     }
-//     res.status(200).json(allPokes);
-//   } catch (error) {
-//     res.status(404).json({ error: error.message });
-//   }
-// };
 
 //* qué id?
 //* id de algo que no está en db o en API
