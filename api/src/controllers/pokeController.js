@@ -1,27 +1,27 @@
-const { Pokemon } = require("../db");
+const { Pokemon, Type } = require("../db");
+const { getApiPokes } = require("../controllers/getApiController");
 const axios = require("axios");
 
-const getApiPokes = async () => {
-  let allPokes = [];
-  let API = "https://pokeapi.co/api/v2/pokemon";
-  do {
-    let info = await axios.get(API);
-    let apiPokes = info.data;
-    let auxPokes = apiPokes.results.map((e) => {
-      return {
-        name: e.name,
-        url: e.url,
-      };
-    });
-    allPokes.push(...auxPokes);
-    API = apiPokes.next;
-  } while (API !== null);
-  return allPokes;
+const getDbPokes = async () => {
+  const dbPokes = await Pokemon.findAll({
+    include: {
+      model: Type,
+      attributes: ["name"],
+      through: {
+        attributes: [],
+      },
+    },
+  });
+  console.log("db pokes obtained");
+  return dbPokes;
 };
 
-const getDbPokes = async () => {};
-
-const getAllPokes = async () => {};
+const getAllPokes = async () => {
+  const dbdata = await getDbPokes();
+  const apidata = await getApiPokes();
+  const allPokes = dbdata.concat(apidata);
+  return allPokes;
+};
 
 const getPokesById = async (id, src) => {
   const poke =
@@ -56,4 +56,9 @@ const createPoke = async (
   return newPoke;
 };
 
-module.exports = { createPoke, getPokesById, getAllPokes, getApiPokes };
+module.exports = {
+  createPoke,
+  getPokesById,
+  getAllPokes,
+  getDbPokes,
+};

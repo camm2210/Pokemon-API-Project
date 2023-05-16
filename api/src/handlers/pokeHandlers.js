@@ -2,13 +2,12 @@ const {
   createPoke,
   getPokesById,
   getAllPokes,
-  getApiPokes,
 } = require("../controllers/pokeController");
 
 const getPokeHandler = async (req, res) => {
   try {
     const { name } = req.query;
-    const allPokes = await getApiPokes();
+    const allPokes = await getAllPokes();
     res.status(200).send(allPokes);
   } catch (error) {
     res.status(400).send({ error: error.message });
