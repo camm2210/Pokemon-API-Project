@@ -16,7 +16,7 @@ const getApiPokes = async () => {
     });
     allPokes.push(...auxPokes);
     API = apiPokes.next;
-  } while (API !== null /*&& allPokes.length < 40*/);
+  } while (API !== null && allPokes.length < 40);
   //return allPokes;
   let pokesData = await Promise.all(
     allPokes.map(async (element) => {
@@ -64,14 +64,6 @@ const getAllPokes = async () => {
   return allPokes;
 };
 
-const getPokesById = async (id, src) => {
-  const poke =
-    src === "API"
-      ? (await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)).data
-      : await Pokemon.findByPk(id);
-  return poke;
-};
-
 const createPoke = async (
   name,
   image,
@@ -99,7 +91,6 @@ const createPoke = async (
 
 module.exports = {
   createPoke,
-  getPokesById,
   getAllPokes,
   getApiPokes,
 };
