@@ -1,5 +1,11 @@
+import { useState } from "react";
+
 const Form = () => {
-  return <h1> Esta es la vista Form </h1>;
+  const [form, serForm] = useState({
+    //que hay en los inputs
+  });
+
+  return <form></form>;
 };
 
 export default Form;

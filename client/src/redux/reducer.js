@@ -1,9 +1,15 @@
+import { GET_POKES, GET_POKE } from "./actions";
+
 const initialState = {
   pokemons: [],
-}; //! estado global inicial
+};
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    case GET_POKE:
+      return { ...state, pokemon: action.payload };
+    case GET_POKES:
+      return { ...state, pokemons: action.payload };
     default:
       return { ...state };
   }

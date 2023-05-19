@@ -1,5 +1,15 @@
+import { Link } from "react-router-dom";
+
 const Landing = () => {
-  return <h1> Esta es la vista Landing </h1>;
+  return (
+    <div>
+      <div>
+        <Link to="/home">
+          <button className={styel.home}> Atrápalos! </button>
+        </Link>
+      </div>
+    </div>
+  );
 };
 
 export default Landing;
