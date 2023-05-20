@@ -1,11 +1,10 @@
-import { Landing, Home, Detail, Form } from "./views";
-import NavBar from "./components/NavBar/Navbar";
+import { Detail, Form, Home, Landing } from "./views/index";
+import NavBar from "./components/NavBar/NavBar";
 import { Route } from "react-router-dom";
-import { useLocation } from "react-router-dom/cjs/react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function App() {
   const location = useLocation();
-  console.log(location);
 
   return (
     <div className="App">
