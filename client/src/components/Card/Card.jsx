@@ -1,6 +1,8 @@
 import style from "./Card.module.css";
 import { NavLink } from "react-router-dom";
 
+const imgTypes = require.context("../../images/types");
+
 const Card = (props) => {
   return (
     <NavLink className={style.none} to="/pokemon/:id">
@@ -13,7 +15,7 @@ const Card = (props) => {
               <div className={style.types}>
                 <img
                   className={style.typesImg}
-                  src={`images/types/${element.name}.png`}
+                  src={imgTypes(`./${element.name}.png`)}
                   alt={element.name}
                 />
                 <p className={style.text}>
