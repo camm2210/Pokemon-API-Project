@@ -8,9 +8,9 @@ const Card = (props) => {
         <img src={props.image} alt="" />
         <h1> {props.name.charAt(0).toUpperCase() + props.name.slice(1)}</h1>
         <div className={style.types}>
-          {props.types?.map((element, key) => {
+          {props.types?.map((element) => {
             return (
-              <div className={style.types} key={key}>
+              <div className={style.types}>
                 <img
                   className={style.typesImg}
                   src={`images/types/${element.name}.png`}
