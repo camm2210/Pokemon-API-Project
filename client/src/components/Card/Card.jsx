@@ -18,9 +18,6 @@ const Card = (props) => {
                   src={imgTypes(`./${element.name}.png`)}
                   alt={element.name}
                 />
-                <p className={style.text}>
-                  {element.name.charAt(0).toUpperCase() + element.name.slice(1)}
-                </p>
               </div>
             );
           })}

@@ -16,7 +16,7 @@ const getApiPokes = async () => {
     });
     allPokes.push(...auxPokes);
     API = apiPokes.next;
-  } while (API !== null && allPokes.length < 40);
+  } while (API !== null && allPokes.length < 120);
   //return allPokes;
   let pokesData = await Promise.all(
     allPokes.map(async (element) => {
