@@ -31,9 +31,9 @@ const getApiPokes = async () => {
         speed: poke.data.stats[5].base_stat,
         height: poke.data.height,
         weight: poke.data.weight,
-        types: poke.data.types.map((e) => {
+        types: poke.data.types.map((element) => {
           return {
-            name: e.type.name,
+            name: element.type.name,
           };
         }),
       };

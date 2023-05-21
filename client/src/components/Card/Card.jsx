@@ -1,12 +1,30 @@
 import style from "./Card.module.css";
+import { NavLink } from "react-router-dom";
 
 const Card = (props) => {
   return (
-    <div className={style.card}>
-      <p>Name = {props.name}</p>
-      <p>Image = {props.image} </p>
-      <p>Types = [props.types]</p>
-    </div>
+    <NavLink className={style.none} to="/pokemon/:id">
+      <div className={style.card}>
+        <img src={props.image} alt="" />
+        <h1> {props.name.charAt(0).toUpperCase() + props.name.slice(1)}</h1>
+        <div className={style.types}>
+          {props.types?.map((element, key) => {
+            return (
+              <div className={style.types} key={key}>
+                <img
+                  className={style.typesImg}
+                  src={`images/types/${element}.png`}
+                  alt={element.name}
+                />
+                <p className={style.text}>
+                  {element.name.charAt(0).toUpperCase() + element.name.slice(1)}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </NavLink>
   );
 };
 

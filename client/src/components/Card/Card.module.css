@@ -4,3 +4,8 @@
   width: fit-content;
   height: fit-content;
 }
+
+.none {
+  text-decoration: none;
+  color: rgba(48, 30, 9, 0.616);
+}
