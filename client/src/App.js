@@ -1,4 +1,4 @@
-import { Detail, Form, Home, Landing } from "./views/index";
+import { Home, Form, Detail, Landing } from "./views/index";
 import NavBar from "./components/NavBar/NavBar";
 import { Route } from "react-router-dom";
 import { useLocation } from "react-router-dom";
