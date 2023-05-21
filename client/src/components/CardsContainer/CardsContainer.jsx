@@ -9,11 +9,13 @@ const CardsContainer = () => {
     <div className={style.container}>
       {pokemons.map((pokemon) => {
         return (
-          <Card
-            name={pokemon.name}
-            image={pokemon.image}
-            types={pokemon.types}
-          />
+          <div className={style.cards}>
+            <Card
+              name={pokemon.name}
+              image={pokemon.image}
+              types={pokemon.types}
+            />
+          </div>
         );
       })}
     </div>
