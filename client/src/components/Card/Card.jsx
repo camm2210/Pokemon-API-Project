@@ -13,7 +13,7 @@ const Card = (props) => {
               <div className={style.types} key={key}>
                 <img
                   className={style.typesImg}
-                  src={`images/types/${element}.png`}
+                  src={`images/types/${element.name}.png`}
                   alt={element.name}
                 />
                 <p className={style.text}>
