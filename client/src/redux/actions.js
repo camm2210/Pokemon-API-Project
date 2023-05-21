@@ -15,8 +15,8 @@ export const getPokes = () => {
 export const getPoke = (id) => {
   return async function (dispatch) {
     const poke = await axios.get(`http://localhost:3001/pokemons/${id}`);
-
     const pokeId = poke.data;
+
     dispatch({ type: GET_POKE, payload: pokeId });
   };
 };

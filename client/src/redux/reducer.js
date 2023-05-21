@@ -2,6 +2,7 @@ import { GET_POKES, GET_POKE } from "./actions";
 
 const initialState = {
   pokemons: [],
+  pokemon: [],
 };
 
 const rootReducer = (state = initialState, action) => {
