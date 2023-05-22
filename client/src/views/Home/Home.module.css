@@ -1,0 +1,14 @@
+.filters {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  height: 50px;
+  padding: 778px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.reloadButton {
+  display: flex;
+  padding: 5px;
+}

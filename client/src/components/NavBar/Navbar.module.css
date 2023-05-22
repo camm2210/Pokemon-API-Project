@@ -4,4 +4,9 @@
   justify-content: space-around;
   border-radius: 15px;
   border: 1px solid black;
+  text-decoration: none;
+}
+
+.linkText {
+  text-decoration: none;
 }

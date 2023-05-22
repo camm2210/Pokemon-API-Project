@@ -14,6 +14,9 @@ const Card = (props) => {
           width="200px"
           height="250vh"
         />
+
+        <span className={style.typesText}>Types</span>
+
         <h1 className={style.name}>
           {props.name.charAt(0).toUpperCase() + props.name.slice(1)}
         </h1>

@@ -8,6 +8,7 @@
   grid-template-columns: [x0] 1fr [x1] 1fr [x2];
   grid-template-rows: [y0] 40px [y1] 190px [y2] 26px [y3] 75px [y4] 30px [y5] 1fr [y6];
   transition: all 0.4s ease;
+  padding: 12px;
 }
 .card:hover {
   transform: translateY(-8px);
@@ -42,4 +43,11 @@
   font-family: "Verdana", sans-serif;
   font-size: 1.5rem;
   color: rgba(48, 30, 9, 0.616);
+}
+
+.typesText {
+  display: flex;
+  justify-content: center;
+  font-family: "Verdana", sans-serif;
+  font-size: 1rem;
 }
