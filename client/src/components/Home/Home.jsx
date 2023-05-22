@@ -9,8 +9,8 @@ const Home = () => {
   const dispatch = useDispatch();
   const allPokemons = useSelector((state) => state.pokemons);
   const types = useSelector((state) => state.types);
-  console.log(types);
 
+  //! paginado
   const [currentPage, setCurrentPage] = useState(1);
   const [pokemonsPerPage, setPokemonsPerPage] = useState(12);
   const indexOfLastPokemon = currentPage * pokemonsPerPage;
@@ -69,8 +69,8 @@ const Home = () => {
           <select onChange={(event) => handleFilterType(event)}>
             <option value="All"> All Types </option>
             {types.map((type) => (
-              <option value={type.name} key={type.name}>
-                {type.name}
+              <option value={types} key={type}>
+                {type}
               </option>
             ))}
           </select>
