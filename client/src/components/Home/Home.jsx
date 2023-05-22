@@ -3,23 +3,22 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPokes } from "../../redux/actions";
 import style from "./Home.module.css";
-import Pagination from "../../components/Paginate/Paginate";
+import Pagination from "../Pagination/Pagination";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const pokemons = useSelector((state) => state.pokemons);
+  const allPokemons = useSelector((state) => state.pokemons);
 
-  //Paginado acá abajo
   const [currentPage, setCurrentPage] = useState(1);
   const [pokemonsPerPage, setPokemonsPerPage] = useState(12);
   const indexOfLastPokemon = currentPage * pokemonsPerPage;
   const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage;
-  const currentPokemons = pokemons.slice(
+  const currentPokemons = allPokemons.slice(
     indexOfFirstPokemon,
     indexOfLastPokemon
   );
 
-  const pagination = (pageNumber) => {
+  const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
@@ -87,8 +86,9 @@ const Home = () => {
       </div>
       <Pagination
         pokemonsPerPage={pokemonsPerPage}
-        allPokemons={pokemons.length}
-        pagination={pagination}
+        allPokemons={allPokemons.length}
+        paginado={paginado}
+        page={currentPage}
       />
       <CardsContainer />
       <div></div>
