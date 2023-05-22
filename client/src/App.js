@@ -1,4 +1,7 @@
-import { Home, Form, Detail, Landing } from "./views/index";
+import Home from "./components/Home/Home";
+import Form from "./components/Form/Form";
+import Landing from "./components/Landing/Landing";
+import Detail from "./components/Detail/Detail";
 import NavBar from "./components/NavBar/NavBar";
 import { Route } from "react-router-dom";
 import { useLocation } from "react-router-dom";
