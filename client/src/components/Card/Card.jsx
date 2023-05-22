@@ -15,11 +15,10 @@ const Card = (props) => {
           height="250vh"
         />
 
-        <span className={style.typesText}>Types</span>
-
         <h1 className={style.name}>
           {props.name.charAt(0).toUpperCase() + props.name.slice(1)}
         </h1>
+        <span className={style.typesText}>Types</span>
         <div className={style.types}>
           {props.types?.map((element) => {
             return (
@@ -28,7 +27,7 @@ const Card = (props) => {
                   className={style.typesImg}
                   src={imgTypes(`./${element.name}.png`)}
                   alt={element.name}
-                  height="65px"
+                  height="70px"
                 />
               </div>
             );

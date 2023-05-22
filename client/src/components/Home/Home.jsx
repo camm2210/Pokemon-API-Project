@@ -90,7 +90,7 @@ const Home = () => {
         paginado={paginado}
         page={currentPage}
       />
-      <CardsContainer />
+      <CardsContainer currentPokemons={currentPokemons} />
       <div></div>
     </div>
   );
