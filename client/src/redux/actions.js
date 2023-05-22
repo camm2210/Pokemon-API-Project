@@ -23,17 +23,16 @@ export const getPoke = (id) => {
   };
 };
 
-export function getTypes() {
+export const getTypes = () => {
   return async function (dispatch) {
-    var info = await axios.get("http://localhost:3001/types", {});
-    console.log(info.data);
+    var info = await axios.get("http://localhost:3001/types");
 
-    return dispatch({
+    dispatch({
       type: GET_TYPES,
       payload: info.data,
     });
   };
-}
+};
 
 export function filterByType(payload) {
   return {

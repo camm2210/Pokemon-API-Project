@@ -2,7 +2,7 @@ const { getTypeDb } = require("../controllers/typeController");
 
 const getPokeType = async (req, res) => {
   try {
-    const pokeType = getTypeDb();
+    const pokeType = await getTypeDb();
     return res.status(200).json(pokeType);
   } catch (error) {
     console.log(error);

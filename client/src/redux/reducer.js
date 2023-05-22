@@ -10,10 +10,13 @@ const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case FILTER_BY_TYPE:
       const pokemons = state.pokemons;
+      console.log(pokemons);
       const pokesFiltered =
         action.payload === "All"
           ? pokemons
-          : pokemons.filter((el) => el.types.includes(action.payload));
+          : pokemons.filter((element) =>
+              element.types.includes(action.payload)
+            );
       return { ...state, pokemons: pokesFiltered };
 
     case GET_TYPES:
