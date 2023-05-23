@@ -5,7 +5,6 @@ import sword from "../../images/cards/sword.png";
 const imgTypes = require.context("../../images/types");
 
 const Card = (props) => {
-  console.log(props);
   return (
     <Link className={style.none} to={`/pokemon/${props.id}`}>
       <div className={style.card}>

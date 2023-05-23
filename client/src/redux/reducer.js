@@ -5,6 +5,7 @@ import {
   FILTER_BY_TYPE,
   GET_POKEMON_NAME,
   GET_POKE_ID,
+  FILTER_BY_CREATED,
 } from "./actions";
 
 const initialState = {
@@ -16,6 +17,21 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    case FILTER_BY_CREATED:
+      let copy = state.allPokemons;
+      let createdFiltered;
+      if (action.payload === "db") {
+        createdFiltered = copy.filter((pokemon) => pokemon.created);
+      } else if (action.payload === "api") {
+        createdFiltered = copy.filter((pokemon) => !pokemon.created);
+      } else {
+        createdFiltered = copy;
+      }
+      return {
+        ...state,
+        pokemons: createdFiltered,
+      };
+
     case GET_POKE_ID:
       return { ...state, pokeId: action.payload };
 
@@ -31,8 +47,6 @@ const rootReducer = (state = initialState, action) => {
           : pokemons.filter((pokemon) =>
               pokemon.types.some((type) => type.name === action.payload)
             );
-      console.log(pokesFiltered);
-      console.log(action.payload);
       return { ...state, pokemons: pokesFiltered };
 
     case GET_TYPES:

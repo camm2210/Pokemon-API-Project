@@ -1,7 +1,12 @@
 import CardsContainer from "../../components/CardsContainer/CardsContainer";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPokes, filterByType, getTypes } from "../../redux/actions";
+import {
+  getPokes,
+  filterByType,
+  getTypes,
+  createdBy,
+} from "../../redux/actions";
 import style from "./Home.module.css";
 import Pagination from "../Pagination/Pagination";
 
@@ -12,7 +17,7 @@ const Home = () => {
 
   //! paginado
   const [currentPage, setCurrentPage] = useState(1);
-  const [pokemonsPerPage, setPokemonsPerPage] = useState(12);
+  const [pokemonsPerPage, _setPokemonsPerPage] = useState(12);
   const indexOfLastPokemon = currentPage * pokemonsPerPage;
   const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage;
   const currentPokemons = allPokemons.slice(
@@ -38,6 +43,10 @@ const Home = () => {
     dispatch(filterByType(event.target.value));
   };
 
+  const handleFilterCreated = (event) => {
+    dispatch(createdBy(event.target.value));
+  };
+
   return (
     <div>
       <button
@@ -59,8 +68,8 @@ const Home = () => {
           </select>
         </div>
         <div>
-          <select>
-            <option value="api"> All Pokemons </option>
+          <select onChange={(event) => handleFilterCreated(event)}>
+            <option value="All"> All Pokemons </option>
             <option value="api"> Pokedex </option>
             <option value="db"> Created </option>
           </select>

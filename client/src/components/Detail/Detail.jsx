@@ -17,11 +17,10 @@ const Detail = () => {
   }, []);
 
   const myPokemon = useSelector((state) => state.pokeId);
-  console.log(myPokemon);
 
   return (
     <div>
-      {myPokemon.length < 0 ? (
+      {myPokemon.length === 0 ? (
         <div>
           <img src={image} alt="Loading" />
         </div>
