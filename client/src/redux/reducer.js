@@ -1,11 +1,11 @@
 import {
   GET_POKES,
-  GET_POKE,
   GET_TYPES,
   FILTER_BY_TYPE,
   GET_POKEMON_NAME,
   GET_POKE_ID,
   FILTER_BY_CREATED,
+  ORDER_BY_NAME,
 } from "./actions";
 
 const initialState = {
@@ -17,6 +17,35 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    case ORDER_BY_NAME:
+      const sorted =
+        action.payload === "asc"
+          ? [...state.pokemons].sort(function (a, b) {
+              if (a.name > b.name) {
+                return 1;
+              }
+              if (b.name > a.name) {
+                return -1;
+              }
+              return 0;
+            })
+          : action.payload === "desc"
+          ? [...state.pokemons].sort(function (a, b) {
+              if (a.name > b.name) {
+                return -1;
+              }
+              if (b.name > a.name) {
+                return 1;
+              }
+              return 0;
+            })
+          : [...state.pokemons];
+
+      return {
+        ...state,
+        pokemons: sorted,
+      };
+
     case FILTER_BY_CREATED:
       let copy = state.allPokemons;
       let createdFiltered;

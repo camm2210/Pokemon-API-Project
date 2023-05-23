@@ -6,6 +6,7 @@ import {
   filterByType,
   getTypes,
   createdBy,
+  sortByName,
 } from "../../redux/actions";
 import style from "./Home.module.css";
 import Pagination from "../Pagination/Pagination";
@@ -47,6 +48,10 @@ const Home = () => {
     dispatch(createdBy(event.target.value));
   };
 
+  const handleSortByName = (event) => {
+    dispatch(sortByName(event.target.value));
+  };
+
   return (
     <div>
       <button
@@ -59,10 +64,10 @@ const Home = () => {
       </button>
       <div className={style.filters}>
         <div>
-          <select>
-            <option value="nor"> Normal </option>
-            <option value="asc"> A - Z </option>
-            <option value="desc"> Z - A</option>
+          <select onChange={(event) => handleSortByName(event)}>
+            <option value="asc">A - Z</option>
+            <option value="desc">Z - A</option>
+
             <option value="asc"> Higher Attack </option>
             <option value="desc"> Lower Attack </option>
           </select>
