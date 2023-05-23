@@ -65,8 +65,12 @@ const Home = () => {
       <div className={style.filters}>
         <div>
           <select onChange={(event) => handleSortByName(event)}>
-            <option value="asc">A - Z</option>
-            <option value="desc">Z - A</option>
+            <option value="asc" onChange={(event) => handleSortByName(event)}>
+              A - Z
+            </option>
+            <option value="desc" onChange={(event) => handleSortByName(event)}>
+              Z - A
+            </option>
 
             <option value="asc"> Higher Attack </option>
             <option value="desc"> Lower Attack </option>

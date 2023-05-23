@@ -7,6 +7,7 @@ export const GET_POKEMON_NAME = "GET_POKEMON_NAME";
 export const GET_POKE_ID = "GET_POKE_ID";
 export const FILTER_BY_CREATED = "FILTER_BY_CREATED";
 export const ORDER_BY_NAME = "ORDER_BY_NAME ";
+export const ORDER_BY_STR = "ORDER_BY_STR";
 
 export const getPokes = () => {
   return async (dispatch) => {
@@ -73,6 +74,13 @@ export function createdBy(payload) {
 export function sortByName(payload) {
   return {
     type: ORDER_BY_NAME,
+    payload,
+  };
+}
+
+export function sortByAttack(payload) {
+  return {
+    type: ORDER_BY_STR,
     payload,
   };
 }
