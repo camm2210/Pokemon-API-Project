@@ -8,7 +8,7 @@ const CardsContainer = ({ currentPokemons }) => {
         return (
           <div className={style.cards} key={key}>
             <Card
-              id={pokemon.id}
+              attack={pokemon.attack}
               name={pokemon.name}
               image={pokemon.image}
               types={pokemon.types}

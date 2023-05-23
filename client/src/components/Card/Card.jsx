@@ -8,6 +8,7 @@ const Card = (props) => {
   return (
     <Link className={style.none} to={`/pokemon/${props.id}`}>
       <div className={style.card}>
+        <div className={style.attack}>{props.attack}</div>
         <h1 className={style.name}>
           {props.name.charAt(0).toUpperCase() + props.name.slice(1)}
         </h1>
