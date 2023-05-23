@@ -16,15 +16,6 @@ export const getPokes = () => {
   };
 };
 
-export const getPoke = (id) => {
-  return async (dispatch) => {
-    const poke = await axios.get(`http://localhost:3001/pokemons/${id}`);
-    const pokeId = poke.data;
-
-    return dispatch({ type: GET_POKE, payload: pokeId });
-  };
-};
-
 export const getTypes = () => {
   return async (dispatch) => {
     const info = await axios.get("http://localhost:3001/types");
@@ -56,13 +47,14 @@ export function getPokeByName(name) {
     } catch (error) {
       alert("Pokemon not found");
       window.location.href = "http://localhost:3000/home";
+      error({ error: error.message });
     }
   };
 }
 
 export function getPokeById(id) {
   return async (dispatch) => {
-    const info = await axios.get("http://localhost:3000/:id");
+    const info = await axios.get(`http://localhost:3001/pokemons/${id}`);
 
     return dispatch({
       type: GET_POKE_ID,

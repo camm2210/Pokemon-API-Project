@@ -1,12 +1,16 @@
 import style from "./Card.module.css";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const imgTypes = require.context("../../images/types");
 
 const Card = (props) => {
+  console.log(props);
   return (
-    <NavLink className={style.none} to="/pokemon/:id">
+    <Link className={style.none} to={`/pokemon/${props.id}`}>
       <div className={style.card}>
+        <h1 className={style.name}>
+          {props.name.charAt(0).toUpperCase() + props.name.slice(1)}
+        </h1>
         <img
           className={style.img}
           src={props.image}
@@ -15,9 +19,6 @@ const Card = (props) => {
           height="250vh"
         />
 
-        <h1 className={style.name}>
-          {props.name.charAt(0).toUpperCase() + props.name.slice(1)}
-        </h1>
         <span className={style.typesText}>Types</span>
         <div className={style.types}>
           {props.types?.map((element, key) => {
@@ -34,7 +35,7 @@ const Card = (props) => {
           })}
         </div>
       </div>
-    </NavLink>
+    </Link>
   );
 };
 
