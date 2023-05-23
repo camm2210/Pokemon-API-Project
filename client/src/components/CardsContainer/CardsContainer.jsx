@@ -4,9 +4,9 @@ import style from "./CardsContainer.module.css";
 const CardsContainer = ({ currentPokemons }) => {
   return (
     <div className={style.container}>
-      {currentPokemons.map((pokemon) => {
+      {currentPokemons.map((pokemon, key) => {
         return (
-          <div className={style.cards}>
+          <div className={style.cards} key={key}>
             <Card
               name={pokemon.name}
               image={pokemon.image}

@@ -20,9 +20,9 @@ const Card = (props) => {
         </h1>
         <span className={style.typesText}>Types</span>
         <div className={style.types}>
-          {props.types?.map((element) => {
+          {props.types?.map((element, key) => {
             return (
-              <div className={style.types}>
+              <div className={style.types} key={key}>
                 <img
                   className={style.typesImg}
                   src={imgTypes(`./${element.name}.png`)}
