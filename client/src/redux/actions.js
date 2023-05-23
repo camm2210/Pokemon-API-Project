@@ -5,13 +5,14 @@ export const GET_POKE = "GET_POKE";
 export const GET_TYPES = "GET_TYPES";
 export const FILTER_BY_TYPE = "FILTER_BY_TYPE";
 export const GET_POKEMON_NAME = "GET_POKEMON_NAME";
+export const GET_POKE_ID = "GET_POKE_ID";
 
 export const getPokes = () => {
   return async (dispatch) => {
     const pokeData = await axios.get("http://localhost:3001/pokemons/");
 
     const pokemons = pokeData.data;
-    dispatch({ type: GET_POKES, payload: pokemons });
+    return dispatch({ type: GET_POKES, payload: pokemons });
   };
 };
 
@@ -20,14 +21,15 @@ export const getPoke = (id) => {
     const poke = await axios.get(`http://localhost:3001/pokemons/${id}`);
     const pokeId = poke.data;
 
-    dispatch({ type: GET_POKE, payload: pokeId });
+    return dispatch({ type: GET_POKE, payload: pokeId });
   };
 };
 
 export const getTypes = () => {
   return async (dispatch) => {
     const info = await axios.get("http://localhost:3001/types");
-    dispatch({
+
+    return dispatch({
       type: GET_TYPES,
       payload: info.data,
     });
@@ -60,6 +62,11 @@ export function getPokeByName(name) {
 
 export function getPokeById(id) {
   return async (dispatch) => {
-    const info = await axios.get();
+    const info = await axios.get("http://localhost:3000/:id");
+
+    return dispatch({
+      type: GET_POKE_ID,
+      payload: info.data,
+    });
   };
 }

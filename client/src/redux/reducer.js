@@ -4,6 +4,7 @@ import {
   GET_TYPES,
   FILTER_BY_TYPE,
   GET_POKEMON_NAME,
+  GET_POKE_ID,
 } from "./actions";
 
 const initialState = {
@@ -11,10 +12,14 @@ const initialState = {
   allPokemons: [],
   pokemon: [],
   types: [],
+  pokeId: [],
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    case GET_POKE_ID:
+      return { ...state, pokeId: action.payload };
+
     case GET_POKEMON_NAME:
       return { ...state, pokemons: action.payload };
 
