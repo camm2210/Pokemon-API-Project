@@ -5,7 +5,7 @@ import {
   GET_POKEMON_NAME,
   GET_POKE_ID,
   FILTER_BY_CREATED,
-  ORDER_BY_NAME,
+  ORDER,
 } from "./actions";
 
 const initialState = {
@@ -17,7 +17,7 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ORDER_BY_NAME:
+    case ORDER:
       const sorted =
         action.payload === "asc"
           ? [...state.pokemons].sort(function (a, b) {
@@ -39,7 +39,13 @@ const rootReducer = (state = initialState, action) => {
               }
               return 0;
             })
-          : [...state.pokemons];
+          : action.payload === "ascAttack"
+          ? [...state.pokemons].sort((a, b) => b.attack - a.attack)
+          : action.payload === "descAttack"
+          ? [...state.pokemons].sort((a, b) => a.attack - b.attack)
+          : action.payload === "normal"
+          ? [...state.allPokemons]
+          : [...state.allPokemons];
 
       return {
         ...state,
