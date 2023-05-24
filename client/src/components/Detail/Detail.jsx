@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getPokeById } from "../../redux/actions";
+import { getPokeById, cleanDetail } from "../../redux/actions";
 import style from "./Detail.module.css";
 import image from "../../images/loading.gif";
 
@@ -14,6 +14,9 @@ const Detail = () => {
 
   useEffect(() => {
     dispatch(getPokeById(id));
+    return () => {
+      dispatch(cleanDetail(dispatch));
+    };
   }, []);
 
   const myPokemon = useSelector((state) => state.pokeId);

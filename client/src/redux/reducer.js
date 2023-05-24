@@ -6,6 +6,7 @@ import {
   GET_POKE_ID,
   FILTER_BY_CREATED,
   ORDER,
+  CLEAN_DETAIL,
 } from "./actions";
 
 const initialState = {
@@ -17,6 +18,12 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    case CLEAN_DETAIL:
+      return {
+        ...state,
+        pokeId: action.payload,
+      };
+
     case ORDER:
       const sorted =
         action.payload === "asc"
