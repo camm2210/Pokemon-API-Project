@@ -18,6 +18,11 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    case "POST_POKEMON":
+      return {
+        ...state,
+      };
+
     case CLEAN_DETAIL:
       return {
         ...state,

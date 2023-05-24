@@ -84,3 +84,12 @@ export function cleanDetail(dispatch) {
     payload: [],
   });
 }
+
+export function postPokemon(payload) {
+  return async (dispatch) => {
+    const info = await axios.post("http://localhost:3001/pokemons", payload);
+    console.log(info);
+
+    return info;
+  };
+}
