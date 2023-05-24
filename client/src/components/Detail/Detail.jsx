@@ -59,13 +59,13 @@ const Detail = () => {
             <h5>Height: {myPokemon[0].height}</h5>
             <h5>Weight: {myPokemon[0].weight}</h5>
           </div>
+          <div>
+            <Link to="/home">
+              <button>All Pokemons</button>
+            </Link>
+          </div>
         </div>
       )}
-      <div>
-        <Link to="/home">
-          <button>All Pokemons</button>
-        </Link>
-      </div>
     </div>
   );
 };
