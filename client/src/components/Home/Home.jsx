@@ -67,7 +67,10 @@ const Home = () => {
       </button>
       <div className={style.filters}>
         <div>
-          <select onChange={(event) => handleSort(event)}>
+          <select
+            onChange={(event) => handleSort(event)}
+            className={style.select}
+          >
             <option value="normal">Normal</option>
             <option value="asc">A - Z</option>
             <option value="desc">Z - A</option>
@@ -77,14 +80,20 @@ const Home = () => {
           </select>
         </div>
         <div>
-          <select onChange={(event) => handleFilterCreated(event)}>
+          <select
+            onChange={(event) => handleFilterCreated(event)}
+            className={style.select}
+          >
             <option value="All"> All Pokemons </option>
             <option value="api"> Pokedex </option>
             <option value="db"> Created </option>
           </select>
         </div>
         <div>
-          <select onChange={(event) => handleFilterType(event)}>
+          <select
+            onChange={(event) => handleFilterType(event)}
+            className={style.select}
+          >
             <option value="All"> All Types </option>
             {types.map((type, key) => (
               <option value={type} key={key}>

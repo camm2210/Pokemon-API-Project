@@ -56,7 +56,7 @@ const PokemonCreate = () => {
       errors.weight = "Number required. Higher than one";
     }
     if (!validateUrl.test(input.image)) {
-      errors.img = "URL required";
+      errors.image = "URL required";
     }
 
     return errors;
@@ -117,13 +117,6 @@ const PokemonCreate = () => {
     } else {
       alert("Error. Check the form");
     }
-  };
-
-  const handleDelete = (event) => {
-    setInput({
-      ...input,
-      types: input.types.filter((type) => type !== event),
-    });
   };
 
   useEffect(() => {
@@ -233,15 +226,15 @@ const PokemonCreate = () => {
             <label className={style.label}>Image:</label>
             <input
               className={style.input}
-              type="string"
+              type="text"
               value={input.image}
-              name="img"
+              name="image"
               onChange={(event) => {
                 handleChange(event);
               }}
               placeholder="URL Image..."
             />
-            <p className={style.p}>{errors.img}</p>
+            <p className={style.p}>{errors.image}</p>
           </div>
         </div>
         <div>
@@ -260,23 +253,13 @@ const PokemonCreate = () => {
               );
             })}
           </select>
-          {
-            input.types.map((type, key) => {
-              return (
-                <div className={style.typesSelect} key={key}>
-                  <p className={style.pTypes}>{type}</p>
-                  <button
-                    className={style.btnDelete}
-                    onClick={(event) => {
-                      handleDelete(event);
-                    }}
-                  >
-                    x
-                  </button>
-                </div>
-              );
-            }) //para poder ver que fui seleccionando
-          }
+          {input.types.map((type, key) => {
+            return (
+              <div className={style.typesSelect} key={key}>
+                <p className={style.pTypes}>{type}</p>
+              </div>
+            );
+          })}
         </div>
         <button className={style.btnCreate} type="submit">
           Create!
