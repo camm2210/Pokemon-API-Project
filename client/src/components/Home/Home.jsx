@@ -19,6 +19,7 @@ const Home = () => {
   //! paginado
   const [currentPage, setCurrentPage] = useState(1);
   const [pokemonsPerPage, _setPokemonsPerPage] = useState(12);
+  const [_order, setOrder] = useState(" ");
   const indexOfLastPokemon = currentPage * pokemonsPerPage;
   const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage;
   const currentPokemons = allPokemons.slice(
@@ -50,6 +51,8 @@ const Home = () => {
 
   const handleSort = (event) => {
     dispatch(sort(event.target.value));
+    setCurrentPage(1);
+    setOrder(`Ordered ${event.target.value}`);
   };
 
   return (
