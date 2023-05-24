@@ -41,34 +41,33 @@ const createPokeHandler = async (req, res) => {
   const { name, image, hp, attack, defense, types, speed, height, weight } =
     req.body;
   try {
+    console.log(name, image, hp, attack, defense, types, speed, height, weight);
+
+    // const allPoke = await getAllPokes();
+    // const isPoke = allPoke.find(
+    //   (e) => e.name.toLowerCase() === name.toLowerCase()
+    // );
     if (name) {
-      const allPoke = await getAllPokes();
-      const isPoke = allPoke.find(
-        (e) => e.name.toLowerCase() === name.toLowerCase()
+      const newPoke = await createPoke(
+        name,
+        image,
+        hp,
+        attack,
+        defense,
+        speed,
+        height,
+        weight
       );
-      if (!isPoke) {
-        const newPoke = await createPoke(
-          name,
-          image,
-          hp,
-          attack,
-          defense,
-          speed,
-          height,
-          weight
-        );
-        const typeDb = await Type.findAll({
-          where: {
-            name: types,
-          },
-        });
-        newPoke.addType(typeDb);
-        return res.status(201).send(newPoke);
-      }
-      if (isPoke) return res.status(400).send("Pokemon name already exist");
+      const typeDb = await Type.findAll({
+        where: {
+          name: types,
+        },
+      });
+      newPoke.addType(typeDb);
+      return res.status(201).send(newPoke);
     }
     if (!name) return res.status(404).send("Pokemon name is required");
-    //
+    // if (isPoke) return res.status(400).send("Pokemon name already exist");
   } catch (error) {
     res.status(404).json({ error: error.message });
   }

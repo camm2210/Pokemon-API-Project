@@ -7,6 +7,7 @@ import {
   FILTER_BY_CREATED,
   ORDER,
   CLEAN_DETAIL,
+  CLEAN_POKEMONS,
 } from "./actions";
 
 const initialState = {
@@ -18,6 +19,11 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    case CLEAN_POKEMONS:
+      return {
+        ...state,
+        pokemons: action.payload,
+      };
     case "POST_POKEMON":
       return {
         ...state,

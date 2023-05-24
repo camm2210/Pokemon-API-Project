@@ -8,6 +8,7 @@ export const GET_POKE_ID = "GET_POKE_ID";
 export const FILTER_BY_CREATED = "FILTER_BY_CREATED";
 export const ORDER = "ORDER";
 export const CLEAN_DETAIL = "CLEAN_DETAIL";
+export const CLEAN_POKEMONS = "CLEAN_POKEMONS";
 
 export const getPokes = () => {
   return async (dispatch) => {
@@ -86,10 +87,16 @@ export function cleanDetail(dispatch) {
 }
 
 export function postPokemon(payload) {
+  console.log(payload);
   return async (dispatch) => {
     const info = await axios.post("http://localhost:3001/pokemons", payload);
     console.log(info);
-
-    return info;
   };
 }
+
+export const cleanPokemons = (dispatch) => {
+  return dispatch({
+    type: CLEAN_POKEMONS,
+    payload: [],
+  });
+};
