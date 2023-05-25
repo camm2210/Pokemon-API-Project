@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getPokeByName } from "../../redux/actions";
+import style from "./SearchBar.module.css";
 
 const SearchBar = () => {
   const dispatch = useDispatch();
@@ -16,14 +17,18 @@ const SearchBar = () => {
   };
 
   return (
-    <div>
+    <div className="style.holder">
       <input
         type="text"
-        placeholder="Search"
         onChange={(event) => inputHandler(event)}
+        className={style.input}
       />
-      <button type="submit" onClick={() => submitHandler(name)}>
-        Search Poke!
+      <button
+        type="submit"
+        onClick={() => submitHandler(name)}
+        className={style.button}
+      >
+        Search
       </button>
     </div>
   );

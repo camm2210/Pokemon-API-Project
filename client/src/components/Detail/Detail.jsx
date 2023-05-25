@@ -24,7 +24,7 @@ const Detail = () => {
   return (
     <div>
       {myPokemon.length === 0 ? (
-        <div>
+        <div className={style.loader}>
           <img src={image} alt="Loading" />
         </div>
       ) : (

@@ -115,8 +115,8 @@
   text-decoration: none;
   width: 8vw;
   height: 5vh;
-  background-color: #f3cf3d4d;
-  color: rgb(184, 184, 184);
+  background-color: #9ad0f2;
+  color: #1e302e;
   border: none;
   border-radius: 5px;
   box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.651);
@@ -127,8 +127,8 @@
 }
 
 .btn:hover {
-  color: white;
-  background-color: rgba(48, 30, 9, 0.616);
+  color: #1e302e;
+  background-color: rgba(255, 255, 255, 0.616);
 }
 
 .btnCreate {
