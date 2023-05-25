@@ -19,7 +19,7 @@ const Home = () => {
   //! paginado
   const [currentPage, setCurrentPage] = useState(1);
   const [pokemonsPerPage, _setPokemonsPerPage] = useState(12);
-  const [_fiorder, setOrder] = useState(" ");
+  const [_order, setOrder] = useState(" ");
   const indexOfLastPokemon = currentPage * pokemonsPerPage;
   const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage;
   const currentPokemons = allPokemons.slice(
@@ -56,20 +56,23 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <button
-        className={style.reloadButton}
-        onClick={(event) => {
-          handleClick(event);
-        }}
-      >
-        Reload Pokemons
-      </button>
+    <div className={style.home}>
+      <div className={style.btnContainer}>
+        <button
+          className={style.reloadButton}
+          onClick={(event) => {
+            handleClick(event);
+          }}
+        >
+          Reload Pokemons
+        </button>
+      </div>
       <div className={style.filters}>
         <div>
           <select
             onChange={(event) => handleSort(event)}
             className={style.select}
+            defaultValue="Normal"
           >
             <option value="normal">Normal</option>
             <option value="asc">A - Z</option>

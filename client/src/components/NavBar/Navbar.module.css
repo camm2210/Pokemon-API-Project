@@ -2,9 +2,9 @@
   display: flex;
   flex-direction: rox;
   justify-content: space-around;
-  border-radius: 15px;
-  border: 1px solid black;
   text-decoration: none;
+  padding: 20px;
+  background-color: #1e302e;
 }
 
 .linkText {

@@ -2,6 +2,7 @@
   position: relative;
   min-height: 18em;
   border: 1px solid rgba(53, 52, 52, 0.404);
+  background-color: aliceblue;
   border-radius: 10px;
   width: 320px;
   height: fit-content;
