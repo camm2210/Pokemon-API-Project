@@ -1,0 +1,13 @@
+.footerContainer {
+  background-color: #1e302e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: large;
+  color: antiquewhite;
+}
+
+.a {
+  text-decoration: underline;
+  color: antiquewhite;
+}

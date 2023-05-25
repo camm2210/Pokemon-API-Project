@@ -28,41 +28,48 @@ const Detail = () => {
           <img src={image} alt="Loading" />
         </div>
       ) : (
-        <div>
-          <div>
-            <h1>
+        <div className={style.container}>
+          <div className={style.back}>
+            <Link to="/home">
+              <button className={style.button}>All Pokemons</button>
+            </Link>
+          </div>
+          <div className={style.card}>
+            <div className={style.name}>
               {myPokemon[0].name.charAt(0).toUpperCase() +
                 myPokemon[0].name.slice(1)}
-            </h1>
-            <p>#{myPokemon[0].id}</p>
+            </div>
+            <p className={style.id}>pokeDex #{myPokemon[0].id}</p>
             <img
               src={myPokemon[0].image}
               alt="img not found"
-              height="250px"
-              width="200px"
+              className={style.pokeImg}
             />
-            <div>
-              <h3>
-                {myPokemon[0].types?.map((element, k) => {
-                  return (
-                    <div key={k}>
-                      <img src={imgTypes(`./${element.name}.png`)} alt="x" />
-                    </div>
-                  );
-                })}
-              </h3>
+            <div className={style.types}>
+              {myPokemon[0].types?.map((element, k) => {
+                return (
+                  <div className={style.types} key={k}>
+                    <img
+                      className={style.typesImg}
+                      src={imgTypes(`./${element.name}.png`)}
+                      alt="Image not fount"
+                    />
+                  </div>
+                );
+              })}
             </div>
-            <h5>HP: {myPokemon[0].hp}</h5>
-            <h5>Attack: {myPokemon[0].attack}</h5>
-            <h5>Defense: {myPokemon[0].defense}</h5>
-            <h5>Speed: {myPokemon[0].speed}</h5>
-            <h5>Height: {myPokemon[0].height}</h5>
-            <h5>Weight: {myPokemon[0].weight}</h5>
-          </div>
-          <div>
-            <Link to="/home">
-              <button>All Pokemons</button>
-            </Link>
+            <div className={style.statsCont}>
+              <div className={style.stats1}>
+                <h5 className={style.stats}>HP: {myPokemon[0].hp}</h5>
+                <h5 className={style.stats}>Attack: {myPokemon[0].attack}</h5>
+                <h5 className={style.stats}>Defense: {myPokemon[0].defense}</h5>
+              </div>
+              <div className={style.stats2}>
+                <h5 className={style.stats}>Speed: {myPokemon[0].speed}</h5>
+                <h5 className={style.stats}>Height: {myPokemon[0].height}</h5>
+                <h5 className={style.stats}>Weight: {myPokemon[0].weight}</h5>
+              </div>
+            </div>
           </div>
         </div>
       )}
