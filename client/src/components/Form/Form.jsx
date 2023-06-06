@@ -37,9 +37,17 @@ const PokemonCreate = () => {
       errors.name =
         "Name required. Only string of more than two characters and without numbers";
     }
-    if (!validateNum.test(input.hp) || parseInt(input.hp) < 1) {
-      errors.hp = "Number required. Higher than one";
+    if (
+      !noEmpty.test(input.name) ||
+      !validateName.test(input.name) ||
+      input.name.length > 15
+    ) {
+      errors.name = "The name must be less than fifteen characters";
     }
+    if (!validateNum.test(input.hp) || parseInt(input.hp) < 1) {
+      errors.hp = "Number required. Higher than one. Lower than fifteen";
+    }
+
     if (!validateNum.test(input.attack) || parseInt(input.attack) < 1) {
       errors.attack = "Number required. Higher than one";
     }

@@ -43,10 +43,12 @@ const Home = () => {
 
   const handleFilterType = (event) => {
     dispatch(filterByType(event.target.value));
+    setCurrentPage(1);
   };
 
   const handleFilterCreated = (event) => {
     dispatch(createdBy(event.target.value));
+    setCurrentPage(1);
   };
 
   const handleSort = (event) => {
