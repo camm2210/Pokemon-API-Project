@@ -135,7 +135,7 @@ Se desarrolló una aplicación utilizando **React** y **Redux** que contiene las
 
 <br />
 
-**📍 FORM PAGE |**: en esta vista se encontrará el formulario para crear un nuevo pokemon.
+**📍 FORM PAGE |**: en esta vista se encuentra el formulario para crear un nuevo pokemon.
 Cuenta con los siguientes campos:
 
 -  Nombre.
